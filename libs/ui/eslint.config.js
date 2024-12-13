@@ -33,11 +33,20 @@ module.exports = [
       '@angular-eslint/component-selector': [
         'error',
         {
-          type: 'element',
+          type: ['attribute', 'element'],
           prefix: 'tdr',
           style: 'kebab-case',
         },
       ],
+      '@angular-eslint/directive-class-suffix': 0,
+      '@angular-eslint/component-class-suffix': 0,
+      '@angular-eslint/no-host-metadata-property': 0,
+      '@angular-eslint/prefer-on-push-component-change-detection': ['error'],
+      '@angular-eslint/prefer-output-readonly': ['error'],
+      '@angular-eslint/prefer-standalone': ['error'],
+      '@angular-eslint/sort-lifecycle-methods': ['error'],
+      '@angular-eslint/use-injectable-provided-in': ['error'],
+      '@angular-eslint/consistent-component-styles': ['error'],
     },
   },
   {
