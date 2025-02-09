@@ -1,4 +1,5 @@
 import {
+  booleanAttribute,
   ChangeDetectionStrategy,
   Component,
   computed,
@@ -43,13 +44,21 @@ const variantMap: TdrVariantMap[] = [
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class]': 'classes()',
+    '[attr.disabled]': 'disabled()',
+    '[attr.aria-disabled]': 'ariaDisabled()',
   },
 })
-export class TdrButtonComponent {
+export class TdrButton {
   private readonly _elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   protected classes = computed(() => `tdr-button-size--${this.size()}`);
 
   public size = input<TdrElementSize>('base');
+
+  public disabled = input(false, { transform: booleanAttribute });
+  public ariaDisabled = input(false, {
+    transform: booleanAttribute,
+    alias: 'aria-disabled',
+  });
 
   public constructor() {
     const element = this._elementRef.nativeElement;
